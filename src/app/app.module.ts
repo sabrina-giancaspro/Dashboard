@@ -14,9 +14,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { CarouselModule } from 'primeng/carousel';
-import { CarouelComponent } from './carousel/carouel/carouel.component';
 import { DashboardService } from './services/dashboard.service';
-import { DialogModule } from 'primeng/dialog';  // Importa DialogModule
+import { DialogModule } from 'primeng/dialog'; 
 
 
 @NgModule({
@@ -26,7 +25,6 @@ import { DialogModule } from 'primeng/dialog';  // Importa DialogModule
     WidgetComponent,
     SubscribersComponent,
     ViewsComponent,
-    CarouelComponent,
   ],
   imports: [
     BrowserModule,
