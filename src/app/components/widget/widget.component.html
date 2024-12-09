@@ -1,14 +1,11 @@
-<div class="widget-container">
+<div class="widget-container" [ngClass]="widgetSize">
   <div class="widget" [ngClass]="{ flipped: data.flipped }">
     <div class="front">
       <div class="settings-btn">
-        <i class="ph ph-gear" (click)="showOptions.set(true)"></i>
+        <i class="ph ph-gear" (click)="toggleSettingsMenu()"></i>
       </div>
       <div class="flip-icon" (click)="flipCard()">
-        <div
-          class="ph ph-flip-horizontal"
-          [ngClass]="{ flipped: data.flipped }"
-        ></div>
+        <div class="ph ph-flip-horizontal" [ngClass]="{ flipped: data.flipped }"></div>
       </div>
       <i *ngIf="frontIcon">
         <div [class]="frontIcon"></div>
@@ -17,15 +14,18 @@
     </div>
     <div class="back">
       <div class="settings-btn">
-        <i class="ph ph-gear"></i>
+        <i class="ph ph-gear" (click)="toggleSettingsMenu()"></i>
       </div>
       <div class="flip-icon" (click)="flipCard()">
-        <div
-          class="ph ph-flip-horizontal"
-          [ngClass]="{ flipped: data.flipped }"
-        ></div>
+        <div class="ph ph-flip-horizontal" [ngClass]="{ flipped: data.flipped }"></div>
       </div>
       <div *ngIf="!backIcon">{{ data.labelback }}</div>
     </div>
+  </div>
+
+  <div *ngIf="settingsMenuVisible" class="settings-menu">
+    <button (click)="changeSize('small')">Piccola</button>
+    <button (click)="changeSize('medium')">Media</button>
+    <button (click)="changeSize('large')">Grande</button>
   </div>
 </div>

@@ -4,7 +4,7 @@ import { Widget } from '../../models/dashboard';
 @Component({
   selector: 'app-widget',
   templateUrl: './widget.component.html',
-  styleUrl: './widget.component.scss',
+  styleUrls: ['./widget.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WidgetComponent {
@@ -12,9 +12,21 @@ export class WidgetComponent {
   @Input() frontIcon: string = '';
   @Input() backIcon: string = '';
 
-  showOptions = signal(false); 
-  
+  settingsMenuVisible = false;
+
+  widgetSize: 'small' | 'medium' | 'large' = 'medium';
+
   constructor(private cdr: ChangeDetectorRef) { }
+
+  toggleSettingsMenu(): void {
+    this.settingsMenuVisible = !this.settingsMenuVisible;
+  }
+
+  changeSize(size: 'small' | 'medium' | 'large'): void {
+    this.widgetSize = size;
+    this.settingsMenuVisible = false;
+    this.cdr.markForCheck();
+  }
 
   flipCard(): void {
     this.data.flipped = !this.data.flipped;
