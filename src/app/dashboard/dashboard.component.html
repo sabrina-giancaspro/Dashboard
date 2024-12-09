@@ -6,7 +6,6 @@
     </div>
   </div>
 
-  <!-- Dialog for selecting widgets -->
   <p-dialog header="Select Widget" [(visible)]="showMenu" [modal]="true" [closable]="true" [style]="{width: '50vw'}">
     <p-carousel
       *ngIf="showMenu"
@@ -46,7 +45,6 @@
     </p-carousel>
   </p-dialog>
 
-  <!-- Display added widgets -->
   <div class="dashboard-widgets">
     <app-widget *ngFor="let w of store.addedWidgets()" [data]="w"></app-widget>
   </div>
